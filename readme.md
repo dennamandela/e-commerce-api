@@ -84,10 +84,10 @@ The goal of this project is to develop a logic-heavy application while exploring
    - Update database configurations in `application.properties`.
 
 3. Install dependencies:
-   mvn clean install  
+   `mvn clean install` 
 
 4. Start the application:
-   mvn spring-boot:run  
+   `mvn spring-boot:run`
 
 5. Access API endpoints:
    - Base URL: `http://localhost:8080`
