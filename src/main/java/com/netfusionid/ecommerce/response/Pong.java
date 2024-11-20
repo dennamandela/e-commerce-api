@@ -9,6 +9,4 @@ public class Pong {
     public String errorMessage;
     public Boolean databaseConnection;
 
-
-
 }
