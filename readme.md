@@ -22,7 +22,7 @@ The goal of this project is to develop a logic-heavy application while exploring
   - View product details.  
 
 - **Checkout and Payment**  
-  - Place orders and process payments via an integrated payment gateway (e.g., Stripe).  
+  - Place orders and process payments via an integrated payment gateway (e.g., Xendit).  
   - View order history and order details.  
 
 ### Admin Features  
@@ -70,7 +70,7 @@ The goal of this project is to develop a logic-heavy application while exploring
 - Java 17 or later  
 - Maven or Gradle  
 - MySQL/PostgreSQL  
-- Stripe (or similar payment gateway) account  
+- Xendit (or similar payment gateway) account  
 
 ### Installation  
 
