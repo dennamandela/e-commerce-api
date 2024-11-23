@@ -1,6 +1,7 @@
 package com.netfusionid.ecommerce.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netfusionid.ecommerce.BaseResponse;
@@ -21,12 +22,28 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping
-    BaseResponse getProductTopTree() {
-        List<Product> topTree = productService.getTopTree();
+    BaseResponse getProduct(
+        @RequestParam(defaultValue = "0") Integer page,
+        @RequestParam(defaultValue = "10") Integer size,
+        @RequestParam(required = false) String q
+    ) {
+
+        List<Product> products;
+
+        if(q == null) {
+            products = productService.getProducts(
+                page, size
+            );
+        } else {
+            products = productService.getProducts(
+                page, size, q
+            );
+        }
+        
         BaseResponse response = new BaseResponse();
         response.setStatus(true);
         response.setMessage("Success");
-        response.setData(topTree);
+        response.setData(products);
 
         return response;
 

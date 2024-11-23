@@ -14,12 +14,28 @@ public class ProductService {
 
     private ProductRepository productRepository;
 
-    public List<Product> getTopTree() {
+    public List<Product> getProducts(
+        Integer pageNumber,
+        Integer pageSize
+    ) {
 
-        PageRequest pageRequest = PageRequest.of(0, 3);
-        Page<Product> productPageTree = productRepository.findAll(pageRequest);
+        PageRequest pageRequest = PageRequest.of(pageNumber-1, pageSize);
+        Page<Product> products = productRepository.findAll(pageRequest);
 
-        return productPageTree.toList();
+        return products.toList();
+        
+    }
+
+    public List<Product> getProducts(
+        Integer pageNumber,
+        Integer pageSize,
+        String name
+    ) {
+
+        PageRequest pageRequest = PageRequest.of(pageNumber-1, pageSize);
+        Page<Product> products = productRepository.findByNameContainsIgnoreCase(name, pageRequest);
+
+        return products.toList();
         
     }
 }
